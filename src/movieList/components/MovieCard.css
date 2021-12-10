@@ -44,3 +44,23 @@
 .pv-1 {
   padding: 1px 0;
 }
+
+.hover-pointer:hover {
+  cursor: pointer;
+}
+
+.horizontal li {
+  display: inline;
+}
+
+.horizontal li::before {
+  content: " - ";
+}
+
+.horizontal li:first-child::before {
+  content: "";
+}
+
+.horizontal {
+  padding-left: 0%;
+}
