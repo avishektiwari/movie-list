@@ -1,3 +1,10 @@
 .background {
-  background-color: gray;
+  padding: 8px;
+  background-color: #8f8a8a;
+  justify-content: center;
+  display: block;
+}
+
+.grid-container {
+  padding: 0 32px;
 }

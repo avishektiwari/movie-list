@@ -1,0 +1,46 @@
+.card {
+  height: 150px;
+  width: auto;
+  display: flex;
+  padding: 8px;
+  margin: 8px;
+  background-color: #636060;
+}
+
+.thumbnail {
+  height: 150px;
+  width: 100px;
+  align-self: center;
+}
+
+.header {
+  font-size: 16pt;
+  font-weight: bold;
+  color: #c7bdbd;
+}
+
+.minitext {
+  font-size: 8pt;
+  color: rgb(63, 60, 60);
+}
+
+.subheader {
+  font-size: 12pt;
+  color: #c7bdbd;
+}
+
+.info {
+  margin: 4px;
+}
+
+.mr-8 {
+  margin-right: 8px;
+}
+
+.flex {
+  display: flex;
+}
+
+.pv-1 {
+  padding: 1px 0;
+}
