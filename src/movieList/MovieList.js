@@ -10,11 +10,6 @@ import * as services from "../services/http";
 const MovieList = () => {
   const [trendingList, seTrendingList] = useState([]);
   const [genres, setGenres] = useState([]);
-  const movie = [
-    { name: "This", overview: "that" },
-    { name: "This", overview: "that" },
-    { name: "Thisis", overview: "that" },
-  ];
 
   async function fetchTrendingList() {
     const movieGenres = await services.fetchMovieGenre();

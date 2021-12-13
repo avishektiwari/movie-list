@@ -1,5 +1,5 @@
 .card {
-  height: 150px;
+  height: 170px;
   width: auto;
   display: flex;
   padding: 8px;
@@ -8,8 +8,8 @@
 }
 
 .thumbnail {
-  height: 150px;
-  width: 130px;
+  height: 170px;
+  width: 145px;
   align-self: center;
 }
 
