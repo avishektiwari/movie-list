@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 
+import config from "./config";
 import * as services from "./services/services";
 import TrendingList from "./trendingList/TrendingList";
 
@@ -19,23 +20,24 @@ const App = () => {
   };
 
   async function fetchTrendingList() {
-    const movieGenres = await services.fetchMovieGenre();
-    const tvGenres = await services.fetchTVGenre();
-
-    const movieData = await services.fetchMovieList();
-    const tvData = await services.fetchTVList();
-
-    setTrendingMovieList(addGenreNames(movieData, movieGenres));
-    setTrendingTVList(addGenreNames(tvData, tvGenres));
-  }
-
-  useEffect(() => {
     try {
-      fetchTrendingList();
+      setIsError(false);
+      const movieGenres = await services.fetchMovieGenre();
+      const tvGenres = await services.fetchTVGenre();
+
+      const movieData = await services.fetchMovieList();
+      const tvData = await services.fetchTVList();
+
+      setTrendingMovieList(addGenreNames(movieData, movieGenres));
+      setTrendingTVList(addGenreNames(tvData, tvGenres));
     } catch (error) {
       setIsError(true);
       console.log(error);
     }
+  }
+
+  useEffect(() => {
+    fetchTrendingList();
   }, []);
 
   return (
@@ -46,7 +48,9 @@ const App = () => {
           trendingTVList={trendingTVList}
         />
       ) : (
-        <div style={{ textAlign: "center" }}>No List Found</div>
+        <div style={{ textAlign: "center" }}>
+          <img width={800} src={config.notFoundImage} />
+        </div>
       )}
     </>
   );

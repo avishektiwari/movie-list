@@ -6,6 +6,11 @@ const headers = {
   Authorization: "Bearer " + config.apiToken,
 };
 
+/**
+ * Fetch trending movie list
+ *
+ * @returns {Array}
+ */
 export async function fetchMovieList() {
   let data = [];
   await axios
@@ -14,11 +19,16 @@ export async function fetchMovieList() {
       data = res.data.results;
     })
     .catch((error) => {
-      return error;
+      throw error;
     });
   return data;
 }
 
+/**
+ * Fetch trending TV show list
+ *
+ * @returns {Array}
+ */
 export async function fetchTVList() {
   let data = [];
   await axios
@@ -27,11 +37,17 @@ export async function fetchTVList() {
       data = res.data.results;
     })
     .catch((error) => {
-      return error;
+      throw error;
     });
   return data;
 }
 
+/**
+ * Fetch movie details
+ *
+ * @param {Number} movieId
+ * @returns {Object}
+ */
 export async function fetchMovie(movieId) {
   let data = [];
   await axios
@@ -42,11 +58,17 @@ export async function fetchMovie(movieId) {
       data = res.data;
     })
     .catch((error) => {
-      return error;
+      throw error;
     });
   return data;
 }
 
+/**
+ * Fetch tv show details
+ *
+ * @param {Number} tvId
+ * @returns {Object}
+ */
 export async function fetchTVShows(tvId) {
   let data = [];
   await axios
@@ -57,11 +79,16 @@ export async function fetchTVShows(tvId) {
       data = res.data;
     })
     .catch((error) => {
-      return error;
+      throw error;
     });
   return data;
 }
 
+/**
+ * Fetch movie genres
+ *
+ * @returns {Array}
+ */
 export async function fetchMovieGenre() {
   let data = [];
   await axios
@@ -70,11 +97,16 @@ export async function fetchMovieGenre() {
       data = res.data.genres;
     })
     .catch((error) => {
-      return error;
+      throw error;
     });
   return data;
 }
 
+/**
+ * Fetch tv shows genres
+ *
+ * @returns {Array}
+ */
 export async function fetchTVGenre() {
   let data = [];
   await axios
@@ -83,7 +115,7 @@ export async function fetchTVGenre() {
       data = res.data.genres;
     })
     .catch((error) => {
-      return error;
+      throw error;
     });
   return data;
 }
