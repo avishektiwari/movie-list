@@ -34,7 +34,7 @@ const App = () => {
       fetchTrendingList();
     } catch (error) {
       setIsError(true);
-      console.log("here");
+      console.log(error);
     }
   }, []);
 
