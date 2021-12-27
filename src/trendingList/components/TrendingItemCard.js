@@ -1,19 +1,19 @@
 import React from "react";
 import { Card } from "@material-ui/core";
 
-import "./MovieCard.css";
-import * as config from "../../config";
+import "./TrendingItemCard.css";
+import config from "../../config";
 import { fetchMovie, fetchTVShows } from "../../services/http";
 
-const MovieCard = (props) => {
+const TrendingItemCard = (props) => {
   const { title, voteAverage, posterPath, id, mediaType, genre } = props;
 
-  const imageUrl = config.imageBaseURL + posterPath;
+  const imageUrl = config.endpoints.imageBaseURL + posterPath;
 
   async function handleTitleOnClick(id) {
     if (mediaType === "movie") {
       const data = await fetchMovie(id);
-      window.open(config.imdbTitleURL + data.imdb_id);
+      window.open(config.endpoints.imdbTitleURL + data.imdb_id);
     } else if (mediaType === "tv") {
       const data = await fetchTVShows(id);
       window.open(data.homepage);
@@ -21,7 +21,7 @@ const MovieCard = (props) => {
   }
 
   async function handleTrailerOnClick() {
-    const youtubeSearch = new URL(config.youtube);
+    const youtubeSearch = new URL(config.endpoints.youtube);
     youtubeSearch.searchParams.set("search_query", title);
     window.open(youtubeSearch);
   }
@@ -31,7 +31,7 @@ const MovieCard = (props) => {
       <img
         className="thumbnail hover-pointer"
         onClick={() => handleTitleOnClick(id)}
-        src={imageUrl || "https://i.imgur.com/LdV1hb0.png"}
+        src={imageUrl || config.defaultIcon}
       />
       <div className="info">
         <div>
@@ -64,4 +64,4 @@ const MovieCard = (props) => {
   );
 };
 
-export default MovieCard;
+export default TrendingItemCard;

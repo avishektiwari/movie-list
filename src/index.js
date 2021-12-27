@@ -2,11 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import MovieList from "./movieList/MovieList";
+import TrendingList from "./trendingList/TrendingList";
 
 ReactDOM.render(
   <React.StrictMode>
-    <MovieList />
+    <TrendingList />
   </React.StrictMode>,
   document.getElementById("root")
 );

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 
-import "./MovieList.css";
-import "./components/MovieCard.css";
-import MovieCard from "./components/MovieCard";
+import "./TrendingList.css";
+import "./components/TrendingItemCard.css";
+import TrendingItemCard from "./components/TrendingItemCard";
 import { Grid } from "@material-ui/core";
 
 import * as services from "../services/http";
 
-const MovieList = () => {
+const TrendingList = () => {
   const [trendingList, seTrendingList] = useState([]);
   const [genres, setGenres] = useState([]);
 
@@ -41,7 +41,7 @@ const MovieList = () => {
         <Grid sm={6}>
           <span className="header">Trending TV Shows</span>
           {movieList.map((item) => (
-            <MovieCard
+            <TrendingItemCard
               title={item.title}
               id={item.id}
               voteAverage={item.vote_average}
@@ -54,7 +54,7 @@ const MovieList = () => {
         <Grid sm={6}>
           <span className="header">Trending Movies</span>
           {tvList.map((item) => (
-            <MovieCard
+            <TrendingItemCard
               title={item.name}
               id={item.id}
               voteAverage={item.vote_average}
@@ -69,4 +69,4 @@ const MovieList = () => {
   );
 };
 
-export default MovieList;
+export default TrendingList;
