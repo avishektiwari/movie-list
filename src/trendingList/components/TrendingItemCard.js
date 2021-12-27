@@ -3,7 +3,7 @@ import { Card } from "@material-ui/core";
 
 import "./TrendingItemCard.css";
 import config from "../../config";
-import { fetchMovie, fetchTVShows } from "../../services/http";
+import { fetchMovie, fetchTVShows } from "../../services/services";
 
 const TrendingItemCard = (props) => {
   const { title, voteAverage, posterPath, id, mediaType, genre } = props;

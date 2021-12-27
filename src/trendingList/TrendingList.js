@@ -1,46 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { Grid } from "@material-ui/core";
 
 import "./TrendingList.css";
 import "./components/TrendingItemCard.css";
 import TrendingItemCard from "./components/TrendingItemCard";
-import { Grid } from "@material-ui/core";
 
-import * as services from "../services/http";
-
-const TrendingList = () => {
-  const [trendingList, seTrendingList] = useState([]);
-  const [genres, setGenres] = useState([]);
-
-  async function fetchTrendingList() {
-    const movieGenres = await services.fetchMovieGenre();
-    const tvGenres = await services.fetchTVGenre();
-    const genres = movieGenres.concat(tvGenres);
-
-    const data = await services.fetchMovieList();
-
-    setGenres(genres);
-    const movies = data.map((item) => {
-      const genre = item.genre_ids.map((g) => {
-        return genres.find((t) => t.id == g);
-      });
-      return { ...item, genre };
-    });
-    seTrendingList(movies);
-  }
-
-  useEffect(() => {
-    fetchTrendingList();
-  }, []);
-
-  const movieList = trendingList.filter((item) => item.media_type === "movie");
-  const tvList = trendingList.filter((item) => item.media_type === "tv");
+const TrendingList = (props) => {
+  const { trendingMovieList, trendingTVList } = props;
 
   return (
     <div className="background">
       <Grid container className="grid-container">
         <Grid sm={6}>
-          <span className="header">Trending TV Shows</span>
-          {movieList.map((item) => (
+          <span className="header">Trending Movies</span>
+          {trendingMovieList.map((item) => (
             <TrendingItemCard
               title={item.title}
               id={item.id}
@@ -52,8 +25,8 @@ const TrendingList = () => {
           ))}
         </Grid>
         <Grid sm={6}>
-          <span className="header">Trending Movies</span>
-          {tvList.map((item) => (
+          <span className="header">Trending TV Show</span>
+          {trendingTVList.map((item) => (
             <TrendingItemCard
               title={item.name}
               id={item.id}

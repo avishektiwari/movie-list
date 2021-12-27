@@ -3,13 +3,14 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const config = {
-  apiToken: process.env.AUTH_TOKEN,
-  baseURL: process.env.API_BASE_URL,
+  apiToken: process.env.REACT_APP_AUTH_TOKEN,
+  baseURL: process.env.REACT_APP_API_BASE_URL,
   endpoints: {
     imageBaseURL: "https://image.tmdb.org/t/p/w780",
     imdbTitleURL: "https://www.imdb.com/title/",
     youtube: "https://www.youtube.com/results/",
-    trending: "trending/all/day",
+    movieList: "discover/movie",
+    tvList: "discover/tv",
     tvShow: "tv/:tvId",
     movie: "movie/:movieId",
     movieGenre: "genre/movie/list",

@@ -9,9 +9,25 @@ const headers = {
 export async function fetchMovieList() {
   let data = [];
   await axios
-    .get(config.baseURL + config.endpoints.trending, { headers })
+    .get(config.baseURL + config.endpoints.movieList, { headers })
     .then((res) => {
       data = res.data.results;
+    })
+    .catch((error) => {
+      return error;
+    });
+  return data;
+}
+
+export async function fetchTVList() {
+  let data = [];
+  await axios
+    .get(config.baseURL + config.endpoints.tvList, { headers })
+    .then((res) => {
+      data = res.data.results;
+    })
+    .catch((error) => {
+      return error;
     });
   return data;
 }
@@ -24,6 +40,9 @@ export async function fetchMovie(movieId) {
     })
     .then((res) => {
       data = res.data;
+    })
+    .catch((error) => {
+      return error;
     });
   return data;
 }
@@ -36,6 +55,9 @@ export async function fetchTVShows(tvId) {
     })
     .then((res) => {
       data = res.data;
+    })
+    .catch((error) => {
+      return error;
     });
   return data;
 }
@@ -46,6 +68,9 @@ export async function fetchMovieGenre() {
     .get(config.baseURL + config.endpoints.movieGenre, { headers })
     .then((res) => {
       data = res.data.genres;
+    })
+    .catch((error) => {
+      return error;
     });
   return data;
 }
@@ -56,6 +81,9 @@ export async function fetchTVGenre() {
     .get(config.baseURL + config.endpoints.tvGenre, { headers })
     .then((res) => {
       data = res.data.genres;
+    })
+    .catch((error) => {
+      return error;
     });
   return data;
 }

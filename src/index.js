@@ -1,12 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
+
 import "./index.css";
+import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import TrendingList from "./trendingList/TrendingList";
 
 ReactDOM.render(
   <React.StrictMode>
-    <TrendingList />
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );
