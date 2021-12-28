@@ -44,10 +44,13 @@ const App = () => {
   return (
     <>
       {!isError ? (
-        <TrendingList
-          trendingMovieList={trendingMovieList}
-          trendingTVList={trendingTVList}
-        />
+        <>
+          <h1 style={{ textAlign: "center" }}>Trayt Trending App</h1>
+          <TrendingList
+            trendingMovieList={trendingMovieList}
+            trendingTVList={trendingTVList}
+          />
+        </>
       ) : (
         <div style={{ textAlign: "center" }}>
           <img width={800} src={config.notFoundImage} />

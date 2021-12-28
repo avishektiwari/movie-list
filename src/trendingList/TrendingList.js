@@ -13,8 +13,9 @@ const TrendingList = (props) => {
       <Grid container className="grid-container">
         <Grid sm={6}>
           <span className="header">Trending Movies</span>
-          {trendingMovieList.map((item) => (
+          {trendingMovieList.map((item, index) => (
             <TrendingItemCard
+              key={index}
               title={item.title}
               id={item.id}
               voteAverage={item.vote_average}
@@ -26,8 +27,9 @@ const TrendingList = (props) => {
         </Grid>
         <Grid sm={6}>
           <span className="header">Trending TV Show</span>
-          {trendingTVList.map((item) => (
+          {trendingTVList.map((item, index) => (
             <TrendingItemCard
+              key={index}
               title={item.name}
               id={item.id}
               voteAverage={item.vote_average}
