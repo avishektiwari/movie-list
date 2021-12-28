@@ -12,7 +12,7 @@ const App = () => {
   const addGenreNames = (listData, genres) => {
     const newList = listData.map((item) => {
       const genre = item.genre_ids.map((g) => {
-        return genres.find((t) => t.id == g);
+        return genres.find((t) => t.id === g);
       });
       return { ...item, genre };
     });
@@ -24,12 +24,13 @@ const App = () => {
       setIsError(false);
       const movieGenres = await services.fetchMovieGenre();
       const tvGenres = await services.fetchTVGenre();
+      const allGenres = movieGenres.concat(tvGenres);
 
       const movieData = await services.fetchMovieList();
       const tvData = await services.fetchTVList();
 
-      setTrendingMovieList(addGenreNames(movieData, movieGenres));
-      setTrendingTVList(addGenreNames(tvData, tvGenres));
+      setTrendingMovieList(addGenreNames(movieData, allGenres));
+      setTrendingTVList(addGenreNames(tvData, allGenres));
     } catch (error) {
       setIsError(true);
       console.log(error);

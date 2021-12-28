@@ -19,7 +19,7 @@ const TrendingList = (props) => {
               id={item.id}
               voteAverage={item.vote_average}
               posterPath={item.backdrop_path}
-              mediaType={item.media_type}
+              mediaType={"movie"}
               genre={item.genre}
             />
           ))}
@@ -32,7 +32,7 @@ const TrendingList = (props) => {
               id={item.id}
               voteAverage={item.vote_average}
               posterPath={item.backdrop_path}
-              mediaType={item.media_type}
+              mediaType={"tv"}
               genre={item.genre}
             />
           ))}
